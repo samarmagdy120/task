@@ -1,60 +1,36 @@
-//
+// import 'package:flapkap_task/core/controller/chart_screen.dart';
 // import 'package:flutter/material.dart';
-// import 'package:charts_flutter/flutter.dart' as charts;
-//
-// class SimpleTimeSeriesChart extends StatelessWidget {
-//   final  List<charts.Series<dynamic, DateTime>> seriesList;
-//   final bool? animate;
-//
-//   SimpleTimeSeriesChart(this.seriesList, {this.animate});
-//
-//   /// Creates a [TimeSeriesChart] with sample data and no transition.
-//   factory SimpleTimeSeriesChart.withSampleData() {
-//     return new SimpleTimeSeriesChart(
-//       _createSampleData(),
-//       // Disable animations for image tests.
-//       animate: false,
-//     );
-//   }
-//
+// import 'package:get/get.dart';
+// import 'package:syncfusion_flutter_charts/charts.dart';
+// import 'package:intl/intl.dart';
+// class ChartScreen extends StatelessWidget {
 //
 //   @override
 //   Widget build(BuildContext context) {
-//     return new charts.TimeSeriesChart(
-//       seriesList,
-//       animate: animate,
-//       // Optionally pass in a [DateTimeFactory] used by the chart. The factory
-//       // should create the same type of [DateTime] as the data provided. If none
-//       // specified, the default creates local date time.
-//       dateTimeFactory: const charts.LocalDateTimeFactory(),
-//     );
+//     return Scaffold(
+//       body: GetBuilder<ChartController>(
+//         builder: (controller) =>
+//          SfCartesianChart(
+//           title: ChartTitle(text: 'Yearly sales analysis'),
+//           legend: Legend(isVisible: true),
+//           tooltipBehavior: controller.tooltipBehavior,
+//           series: <ChartSeries>[
+//             LineSeries<SalesData, double>(
+//                 name: 'Sales',
+//                 dataSource: controller.chartData as List<SalesData>,
+//                 xValueMapper: (SalesData sales, _) => sales.year,
+//                 yValueMapper: (SalesData sales, _) => sales.sales,
+//                 dataLabelSettings: DataLabelSettings(isVisible: true),
+//                 enableTooltip: true)
+//           ],
+//           primaryXAxis: NumericAxis(
+//             edgeLabelPlacement: EdgeLabelPlacement.shift,
+//           ),
+//           primaryYAxis: NumericAxis(
+//               labelFormat: '{value}M',
+//               numberFormat: NumberFormat.simpleCurrency(decimalDigits: 0)),
+//         ),
+//       ));
+//
 //   }
-//
-//   /// Create one series with sample hard coded data.
-//   static List<charts.Series<TimeSeriesSales, DateTime>> _createSampleData() {
-//     final data = [
-//       new TimeSeriesSales(new DateTime(2017, 9, 19), 5),
-//       new TimeSeriesSales(new DateTime(2017, 9, 26), 25),
-//       new TimeSeriesSales(new DateTime(2017, 10, 3), 100),
-//       new TimeSeriesSales(new DateTime(2017, 10, 10), 75),
-//     ];
-//
-//     return [
-//       new charts.Series<TimeSeriesSales, DateTime>(
-//         id: 'Sales',
-//         colorFn: (_, __) => charts.MaterialPalette.blue.shadeDefault,
-//         domainFn: (TimeSeriesSales sales, _) => sales.time,
-//         measureFn: (TimeSeriesSales sales, _) => sales.sales,
-//         data: data,
-//       )
-//     ];
-//   }
-// }
-//
-// /// Sample time series data type.
-// class TimeSeriesSales {
-//   final DateTime time;
-//   final int sales;
-//
-//   TimeSeriesSales(this.time, this.sales);
 // }

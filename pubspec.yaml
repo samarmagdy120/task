@@ -36,8 +36,8 @@ dependencies:
   cupertino_icons: ^1.0.2
   get: ^4.3.8
   hexcolor: ^2.0.5
-  charts_flutter: ^0.11.0
-  http: ^0.13.4
+  syncfusion_flutter_charts: ^19.3.48
+
 dev_dependencies:
   flutter_test:
     sdk: flutter

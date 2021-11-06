@@ -8,12 +8,12 @@ import 'dart:convert';
 import 'package:flutter/services.dart';
 
 class HomeRemote {
-  static Future<void> readJsonFile() async {
 
-    final String response = await rootBundle.loadString('assets/orders.json');
-    final productData = await json.decode(response);
-    print(productData);
+  static Future readJsonFile(url) async {
 
+    final  response = await rootBundle.loadString(url);
+    final list = await json.decode(response);
+    return list;
   }
 
 }
