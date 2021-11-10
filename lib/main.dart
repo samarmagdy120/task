@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:flapkap_task/core/controller/home_controller.dart';
 import 'package:flapkap_task/core/services/remote/home_remote.dart';
 import 'package:flapkap_task/model/home_model.dart';
+import 'package:flapkap_task/view/home_screen/desktop/desktop_home_screen.dart';
 import 'package:flapkap_task/view/home_screen/home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -21,8 +22,20 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      home: HomeScreen(),
+      home: Builder(
+        builder: (context) {
+      if(MediaQuery.of(context).size.width.toInt() <= 560)
+        return MediaQuery(
+            data: MediaQuery.of(context).copyWith(
+                textScaleFactor:.8
+            ),
+            child: HomeScreen()
+        );
+      return DesktopHomeScreen();
+    }
+    ),
     );
+
   }
 
 }

@@ -9,10 +9,10 @@ import 'package:flutter/services.dart';
 
 class HomeRemote {
 
-  static Future readJsonFile(url) async {
+  static Future<List> readJsonFile(url) async {
 
     final  response = await rootBundle.loadString(url);
-    final list = await json.decode(response);
+    final list = await json.decode(response) as List;
     return list;
   }
 

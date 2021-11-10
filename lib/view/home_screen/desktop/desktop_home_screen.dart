@@ -6,11 +6,10 @@ import 'package:flapkap_task/view/widgets/custom_button.dart';
 import 'package:flapkap_task/view/widgets/custom_text.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:hexcolor/hexcolor.dart';
 
-class HomeScreen extends StatelessWidget {
+class DesktopHomeScreen extends StatelessWidget {
   // Future<void> readJson() async {
   //   final String response = await rootBundle.loadString('assets/orders.json');
   //   final data = await json.decode(response);
@@ -142,7 +141,7 @@ class HomeScreen extends StatelessWidget {
             ),
             Container(
               padding: EdgeInsets.all(10),
-                width: double.infinity,
+                width: 200,
                 height: 60,
                 alignment: Alignment.bottomCenter,
                 child: CustomButton(
@@ -150,7 +149,7 @@ class HomeScreen extends StatelessWidget {
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(10)),
                   onPressed: () {
-                      Get.to(()=>ChartScreen());
+                    Get.to(()=>ChartScreen());
                   },
                 ))
           ],
