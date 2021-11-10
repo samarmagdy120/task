@@ -1,6 +1,6 @@
 # task
 
-A new Flutter project.
+this app you can run on android, ios and web .
 
 ## To run this App 
 
