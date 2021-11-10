@@ -1,6 +1,6 @@
 # task
 
-this app you can run on android, ios and web .
+This app you can run on android, ios and web .
 
 ## To run this App 
 
